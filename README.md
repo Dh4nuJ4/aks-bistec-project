@@ -1,4 +1,3 @@
-```markdown
 # AKS Cluster Setup and Nginx Deployment
 
 This project demonstrates the creation of an Azure Kubernetes Service (AKS) cluster using Terraform and the deployment of a simple Nginx web server with Kubernetes. The goal was to set up an AKS cluster, deploy a basic application, and expose it via a LoadBalancer service, all while documenting the process, challenges, and lessons learned.
