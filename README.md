@@ -250,4 +250,3 @@ This journey bridged the gap between theoretical knowledge and practical applica
 - Successfully created an AKS cluster with 1 node.
 - Set custom node labels (`kubernetes.io/role=node` and `role=webserver`) to replace `<none>`.
 - Deployed an Nginx app with 2 replicas, accessible at `http://128.203.103.199`.
-```
