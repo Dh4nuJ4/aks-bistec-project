@@ -209,28 +209,6 @@ Before starting, ensure you have the following tools installed:
   ```
   - This should return the Nginx welcome page, confirming success.
 
-### 6. Add the Contributor Role
-- The assignment required adding an "AKS contributor role." Update `main.tf` to include the role assignment:
-  ```hcl
-  resource "azurerm_role_assignment" "aks_contributor" {
-    scope                = azurerm_resource_group.rg.id
-    role_definition_name = "Contributor"
-    principal_id         = azurerm_kubernetes_cluster.aks.identity[0].principal_id
-  }
-  ```
-- Apply the change:
-  ```powershell
-  terraform apply
-  ```
-  - Type `yes` to approve.
-
-### 7. Clean Up
-- To avoid costs, destroy the resources:
-  ```powershell
-  terraform destroy
-  ```
-  - Type `yes` to approve.
-
 ## Challenges Faced
 - **Subscription ID Error**: My first `terraform plan` failed because I omitted the `subscription_id` in `main.tf`. I resolved this by adding it to the `provider "azurerm"` block.
 - **Understanding Permissions**: The assignment mentioned assigning the AKS Contributor role, which initially caused confusion. After researching, I learned that the SystemAssigned identity automatically provides the necessary permissions within the cluster’s resource group. Since I wasn’t accessing other Azure services like ACR or Key Vault, additional role assignments weren’t required for this project.
